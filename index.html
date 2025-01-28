@@ -13,56 +13,77 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="site-header">
+  <div class="container"> <!-- Container of all page content -->
+    <header role="banner" id="top"> <!-- ARIA Role banner, id top for later skip links -->
       <h1>Jam Box Studios</h1>
-      <div class="main-nav">
+      
+      <nav role="navigation"> <!-- ARIA Role navigation - redundant, but for the purpose of this assignment it is used -->
         <ul>
           <li><a href="#">Home</a></li>
           <li><a href="#">Products</a></li>
           <li><a href="#">Reservation</a></li>
           <li><a href="#">Studio</a></li>
         </ul>
-      </div>
-      <img src="https://placekitten.com/1200/900" class="banner">
-    </div>
-    <div class="main-content">
+      </nav>
+      
+      <img src="https://picsum.photos/1200/900"> <!-- Randomized image, therefore no alt text -->
+    </header>
+    
+    <main role="main" id="main"> <!-- ARIA role main - redundant -->
       <h1>Welcome to Jam Box</h1>
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus laboriosam praesentium nostrum ipsa eveniet, officia deserunt cumque eius esse enim, ipsam accusantium autem nihil quaerat sequi perferendis optio quia veritatis.</p>
       <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam perferendis expedita sed itaque odit ipsam omnis, eos voluptates magni fugit culpa voluptatibus, inventore eaque, eligendi voluptatum! Voluptate iusto error voluptatibus.</p>
+      
       <div class="owner">
         <h1>Meet the owner</h1>
-        <ul>
-          <li>Name: John Doe</li>
-          <li>Title: CEO</li>
-          <li>Email: johnjoe@jambox.ca</li>
-          <li>Phone: 613-000-0000</li>
+        <ul itemscope itemtype="https://schema.org/Person"> <!-- Adds and defines Schema scope 'Person' to unordered list -->
+          <li itemprop="name">Name: John Doe</li> <!-- Adds item property to each list item -->
+          <li itemprop="jobTitle">Title: CEO</li>
+          <li itemprop="email">Email: johnjoe@jambox.ca</li>
+          <li itemprop="telephone">Phone: 613-000-0000</li>
         </ul>
-        <h1>Address</h1>
-        <p>
+
+        <h1>Address</h1> 
+        <p itemscope itemtype="https://schema.org/PostalAddress"> <!-- Adds and defines Schema scope 'PostalAddress' to paragraph tag -->
           Jambox Studios
-          123 Guitar Road,
-          Musicville, Danceistan
-          B3T 0L0
+          <span itemprop="streetAddress">123 Guitar Road, </span> <!-- Adds item property to each span, which is each part of the postal ad -->
+          <span itemprop="addressLocality">Musicville, </span>
+          <span itemprop="addressRegion">Danceistan </span>
+          <span itemprop="postalCode">B3T 0L0 </span>
         </p>
       </div>
-      <div class="contact-section">
+      
+      <form action="thanks.html" role="form"> <!-- Modified the content to have the h1 inside the form tag to simplify structure. Added redundant ARIA role form.  -->
         <h1>Contact Us</h1>
-        <form action="thanks.html">
-          <label>Full Name</label>
-          <input type="text" placeholder="Full Name">
-          <input type="text" placeholder="Email">
-          <input type="text" placeholder="Subject">
-          <b>Your Message</b>
-          <textarea></textarea>
-          <button type="submit">Send</button>
-        </form>
-      </div>
-    </div>
-    <div class="site-footer">
-      &copy; 2021 Jam Box Studios
-    </div>
+        
+        <!-- For each input, I added a label with a for attribute to tie them to the input on a click, as well as added a placeholder. -->
+
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" placeholder="Full Name">
+
+        <label for="email">Email</label>
+        <input type="text" id="email" placeholder="Email">
+          
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" placeholder="Subject">
+          
+        <label for="message"><b>Your Message</b></label>
+        <textarea id="message" placeholder="Write your message here..."></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+
+      <div class="skip-links"> <!-- I added a separate div to hold the skip links, that jump to the top of the page, and the main content of the page -->
+        <ul>
+          <li><a href="#top">Jump To Top</a></li>
+          <li><a href="#main">Jump To Main Content</a></li>
+        </ul>
+      </div>      
+    </main>
+
+    <footer role="contentinfo"> <!-- ARIA role contentinfo added, redundant  -->
+      &copy; 2021 Jam Box Studios <!-- ASCII Notation for the copyright symbol -->
+    </footer>
   </div>
 </body>
-
 </html>
