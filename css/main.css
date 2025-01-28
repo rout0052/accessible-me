@@ -69,3 +69,18 @@ form button {
 footer {
   padding: 2rem 0;
 }
+
+div.skip-links a:visited { /* Changes the visited states of the skip-links div to inherit the black colour since the "visited" state is irrelevant for the skip links since they just jump to the top of the page. */
+  color: inherit;
+}
+
+a:hover { /* Adds a color and underline to indicate hover state of a link */
+  background-color: lightgreen;
+  text-decoration-line: underline;
+}
+
+
+a:focus { /* Adds a color and border to indicate focus state of a link */
+  border: black solid 2px;
+  background-color: lightblue ;
+}
